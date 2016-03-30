@@ -1,10 +1,9 @@
 # SquareRails
 
-### An easy way to work with Square's Connect API from Ruby on Rails.
+An easy way to work with Square's Connect API from Ruby on Rails.
 
 ## Demonstration: 
-### Access any Square Merchant's Account, Locations and Payments
-(yes you need their login)
+### Access a Square Merchant's Account, Locations and Payments
 
 #### 1. Install the square_rails gem
 
@@ -16,13 +15,13 @@ gem 'square_rails', :git => 'git://github.com/qmclaugh/square_rails.git'
 
 And then execute:
 
-  $ bundle
+	$ bundle
   
 #### 2. Enter your Square Connect application credentials
 
 Execute the following to copy `\config\initalizers\square_rails_init.rb` into your application:
   
-  $ rake square_rails:init
+	$ rake square_rails:init
   
 Open `\config\intializers\square_rails_init.rb` in your Rails application and **enter your Square Application ID and Application Secret**.  If you don't have these, go to [https://developers.squareup.com/](https://developers.squareup.com/), sign up for a Square account and then go to [Manage Apps](https://developers.squareup.com/apps). Open or create a new Square Connect app there and you'll see both.
 
