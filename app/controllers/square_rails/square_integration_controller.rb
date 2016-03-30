@@ -16,7 +16,8 @@ module SquareRails
         oauth_request_body = {
           'client_id' => SQUARE_APP_ID,
           'client_secret' => SQUARE_APP_SECRET,
-          'code' => authorization_code
+          'code' => authorization_code,
+          'scope' => SQUARE_SCOPE
         }
 
         response = Unirest.post "#{SQUARE_CONNECT_HOST}/oauth2/token",
@@ -28,7 +29,7 @@ module SquareRails
 
           # Here, instead of printing the access token, your application server should store it securely
           # and use it in subsequent requests to the Connect API on behalf of the merchant.
-          auth_response =  'Access token received and assigned to a session variable.'
+          auth_response =  "Access token received and assigned to session[:square_access_token]. The token is: <br><br>#{response.body['access_token']}"
           session[:square_access_token] = response.body['access_token']
         # The response from the Obtain Token endpoint did not include an access token. Something went wrong.
         else
@@ -44,7 +45,7 @@ module SquareRails
         session[:square_auth_response] = auth_response
         redirect_to SQUARE_AFTER_AUTHORIZE_PATH
       else
-        render text: auth_response
+        render text: auth_response.html_safe
       end
     end
 

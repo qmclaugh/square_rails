@@ -17,3 +17,7 @@ SQUARE_CONNECT_HOST = 'https://connect.squareup.com'
 # variable session[:square_access_token]
 
 SQUARE_AFTER_AUTHORIZE_PATH = nil # path to go to after user authorizes, eg '/home/dashboard'
+
+SQUARE_SCOPE = 'PAYMENTS_READ,MERCHANT_PROFILE_READ' # set to desired permissions.  See 
+
+include SquareRails
