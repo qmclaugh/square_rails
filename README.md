@@ -4,6 +4,7 @@ An easy way to work with Square's Connect API from Ruby on Rails.
 
 ## Demonstration: 
 ### Access a Square Merchant's Account, Locations and Payments
+In four lines of code. After config :)
 
 #### 1. Install the square_rails gem
 
@@ -78,6 +79,8 @@ TODO: Structure and clarify this section.
 The above demo should make a lot clear.  For the initial merchant authentication, make sure to set `SQUARE_AFTER_AUTHORIZE_PATH` in `\config\initalizers\square_rails_init.rb`.  Set this to a path within your application and store your user's access token in the database there (it will be in `session[:square_access_token]`).  Then there is no text page shown; the user is just redirected back into your application.  
 
 If you are using the devise gem for authentication, you could migrate the User model to include a new field `square_access_token` and store the Square Connect assigned access token there after the user logs in. Then you can get to locations etc with `current_user.square_access_token`. Don't hit the Connect API every time..!
+
+**Once in production** or on staging, make sure to change the Square Connect side **Redirect URL** that you set in Step 3... no localhost here.
 
 ## TODO:
 
